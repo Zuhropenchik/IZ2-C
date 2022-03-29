@@ -1,0 +1,5 @@
+add_subdirectory(Vector)
+add_subdirectory(Letters)
+add_subdirectory(Sorting)
+add_subdirectory(Searching)
+add_subdirectory(interface)
