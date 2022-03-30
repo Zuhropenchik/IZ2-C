@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<stdlib.h>
 #include "Letters.h"
 #include "Vector.h"
 #include "Sorting.h"
@@ -32,5 +31,5 @@ swap(vector, leftPtr, high);
 quick_sort(vector, low, leftPtr - 1);
 quick_sort(vector, leftPtr + 1, high);
 
-return;
+
 }

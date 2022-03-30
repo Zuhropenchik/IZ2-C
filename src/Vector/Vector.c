@@ -38,13 +38,6 @@ void input_vector(Vector * vector, FILE * f){
         add_letter(vector, f);
     }
 }
-void print_vector(Vector * vector, FILE *f){
-    if(f == NULL || vector == NULL)
-        return;
-    for(int i=0; i<vector->length;i++){
-        print_letter(&vector->letters[i],f);
-    }
-}
 void free_vector(Vector** vector){
     if (*vector == NULL)
         return;

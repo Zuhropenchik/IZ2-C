@@ -35,7 +35,7 @@ Letters * input_letter(FILE* f){
         return NULL;
 
     temp =get_str(f);
-    if(temp == NULL || feof(f))
+    if(feof(f))
         return NULL;
     letter->recipients_num = atoi(temp);
 
@@ -58,17 +58,17 @@ Letters * input_letter(FILE* f){
         return NULL;
 
     temp = get_str(f);
-    if(temp == NULL || feof(f))
+    if(feof(f))
         return NULL;
     letter->day = atoi(temp);
 
     temp = get_str(f);
-    if(temp == NULL || feof(f))
+    if(feof(f))
         return NULL;
     letter->month = atoi(temp);
 
     temp = get_str(f);
-    if(temp == NULL || feof(f))
+    if(feof(f))
         return NULL;
     letter->year = atoi(temp);
 

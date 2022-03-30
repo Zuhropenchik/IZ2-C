@@ -10,5 +10,4 @@ size_t capacity;
 Vector* vector_constructor(size_t length, size_t capacity);
 void add_letter(Vector* vector, FILE* f);
 void input_vector(Vector * vector, FILE * f);
-void print_vector(Vector * vector, FILE *f);
 void free_vector(Vector** vector);
