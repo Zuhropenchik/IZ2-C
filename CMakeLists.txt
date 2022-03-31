@@ -1,9 +1,16 @@
 cmake_minimum_required(VERSION 3.21)
 project(IZ2 C)
 
+option(parallel "Build parallel version" OFF)
+
 set(CMAKE_C_STANDARD 99)
 add_subdirectory(src)
 add_executable(IZ2 main.c)
 file(GLOB DATA_FILES "Data/*.txt")
 file(COPY ${DATA_FILES} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Data)
-target_link_libraries(IZ2 LINK_PUBLIC Letters Vector Sorting Searching interface)
+target_link_libraries(IZ2 LINK_PUBLIC Letters interface)
+if(parallel)
+    target_link_libraries(IZ2 LINK_PUBLIC Searching_Parallel Sorting_Parallel Vector_Parallel)
+else()
+    target_link_libraries(IZ2 LINK_PUBLIC Searching_Consistent Sorting_Consistent Vector_Consistent)
+endif(parallel)

@@ -81,9 +81,9 @@ void print_letter(Letters * letters, FILE * f){
     fprintf(f,"from: %s\n", letters->sender);
     fprintf(f, "to: ");
     for(int i=0; i<letters->recipients_num; i++) {
-        fprintf(f, "%s ", letters->recipients[i]);
+        fprintf(f, "%s", letters->recipients[i]);
         if(i!=letters->recipients_num-1)
-            fprintf(f,",");
+            fprintf(f,", ");
     }
     fprintf(f,"\nTheme: %s\n", letters->theme);
     fprintf(f,"%s\n", letters->body);
