@@ -14,7 +14,7 @@ int main() {
     }
     Vector * vector = vector_constructor(0,1);
     input_vector(vector, rf);
-    quick_sort(vector, 0, (vector->length)-1);
+    merge_sort(vector);
     interface(vector, wf);
     free_vector(&vector);
     return 0;

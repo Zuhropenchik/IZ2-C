@@ -31,6 +31,22 @@ void add_letter(Vector* vector, FILE * f){
     ++vector->length;
     free(temp);
 }
+void add_letter2(Vector * vector, Letters * letter){
+    if(vector==NULL || letter == NULL){
+        return;
+    }
+
+
+    if(vector->length+1 >= vector->capacity){
+        vector->capacity *=2;
+        vector->letters = (Letters*) realloc(vector->letters, sizeof(Letters)*vector->capacity);
+        if(!vector->letters){
+            return;
+        }
+    }
+    vector->letters[vector->length] = *letter;
+    ++vector->length;
+}
 void input_vector(Vector * vector, FILE * f){
     if(f==NULL || vector == NULL)
         return;

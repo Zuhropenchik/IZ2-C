@@ -2,34 +2,53 @@
 #include "Letters.h"
 #include "Vector.h"
 #include "Sorting.h"
-void swap(Vector * vector, int index1, int index2)
-{
-    Letters temp = vector->letters[index1];
-    vector->letters[index1] = vector->letters[index2];
-    vector->letters[index2] = temp;
+void merge(Vector * vector, Vector * left, Vector * right) {
+    int m=0;
+    int i = 0, j = 0;
+    if(vector == NULL || left == NULL || right == NULL || left->length + right->length != vector->length){
+        return;
+    }
+    while(i < left->length && j < right->length) {
+        if (Compare(&left->letters[i], &right->letters[j]) < 0) {
+            vector->letters[m] = left->letters[i];
+            i++;
+            m++;
+        }
+
+        else {
+            vector->letters[m] = right->letters[j];
+            j++;
+            m++;
+        }
+    }
+
+    for (; i < left->length; ++i) {
+        vector->letters[m] = left->letters[i];
+        m++;
+    }
+    for (; j < right->length; ++j) {
+        vector->letters[m] = right->letters[j];
+        m++;
+    }
+
 }
-void quick_sort(Vector * vector, const int low, const int high) {
-if (low >= high) {
-return;
-}
 
-int leftPtr = low, rightPtr = high;
-while (leftPtr < rightPtr) {
+void merge_sort(Vector * vector) {
+    if (vector->length <= 1) {
+        return;
+    }
 
+    Vector * left = vector_constructor(0,1);
+    Vector * right = vector_constructor(0,1);
 
-while (leftPtr < rightPtr && Compare(&vector->letters[leftPtr], &vector->letters[high]) <=0)
-    leftPtr++;
+    int i = 0;
+    for (; i < vector->length / 2; ++i)
+        add_letter2(left, &vector->letters[i]);
 
+    for (; i < vector->length; ++i)
+        add_letter2(right, &vector->letters[i]);
 
-while (leftPtr < rightPtr && Compare(&vector->letters[rightPtr], &vector->letters[high]) >=0)
-    rightPtr--;
-
-swap(vector, leftPtr, rightPtr);
-}
-
-swap(vector, leftPtr, high);
-quick_sort(vector, low, leftPtr - 1);
-quick_sort(vector, leftPtr + 1, high);
-
-
+    merge_sort(left);
+    merge_sort(right);
+    merge(vector, left, right);
 }
