@@ -21,7 +21,7 @@ jobs:
         run: sudo apt install libgtest-dev lcov
 
       - name: build
-        run: cmake -B build -Dparallel=false && cd build\ && make
+        run:  cmake -B build -Dparallel=false  && cd build/  &&  make
 
   build_parallel:
     runs-on: ubuntu-latest
@@ -33,4 +33,4 @@ jobs:
         run: sudo apt install libgtest-dev lcov
 
       - name: build
-        run: cmake -B build -Dparallel=true && cd build\ && make
+        run:  cmake -B build Dparallel=true  && cd build/  &&  make
