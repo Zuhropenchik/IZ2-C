@@ -5,7 +5,7 @@ option(parallel "Build parallel version" OFF)
 option(test "Build test" ON)
 
 set(CMAKE_C_STANDARD 99)
-add_subdirectory(src)
+add_subdirectory(src Test)
 add_executable(IZ2 main.c)
 file(GLOB DATA_FILES "Data/*.txt")
 file(COPY ${DATA_FILES} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Data)
@@ -17,10 +17,8 @@ if(parallel)
 else()
     target_link_libraries(IZ2 LINK_PUBLIC Searching_Consistent Sorting_Consistent)
 endif(parallel)
-if (test)
-    add_subdirectory(Test)
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${LCOV_COMPILE_FLAGS} -pthread -coverage -lgcov -g -Wall -Werror")
-    set(CMAKE_CXX_COMPILE_FLAGS "${CMAKE_CXX_FLAGS} ${LCOV_LINK_FLAGS} -pthread")
 
-endif ()
+
+
+
 
