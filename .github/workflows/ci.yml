@@ -11,14 +11,26 @@ on:
 
 
 jobs:
-  build:
+  build_consistent:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
-      - name: build parallel
-        run:  cmake -Dparallel = ON -B ./build
-        
-      - name: build static
-        run: cmake -Dparallel = OFF -B ./build
+      - name: install gtest
+        run: sudo apt install libgtest-dev lcov
+
+      - name: build
+        run: cmake -B build -Dparallel=false && cd build\ && make
+
+  build_parallel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install gtest
+        run: sudo apt install libgtest-dev lcov
+
+      - name: build
+        run: cmake -B build -Dparallel=true && cd build\ && make
