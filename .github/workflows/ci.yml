@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: build parallel
-        run:  cmake -Dparallel = ON
+        run:  cmake -Dparallel = ON -B ./build
         
       - name: build static
-        run: cmake -Dstatic = OFF
+        run: cmake -Dparallel = OFF -B ./build
