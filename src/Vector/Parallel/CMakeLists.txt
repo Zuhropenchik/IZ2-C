@@ -1,5 +1,0 @@
-set(LIBRARY_NAME Vector_Parallel)
-file(GLOB SRC Vector.c ../Vector.h)
-add_library(${LIBRARY_NAME} SHARED ${SRC})
-target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../.)
-target_link_libraries(${LIBRARY_NAME} LINK_PUBLIC Letters)

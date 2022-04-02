@@ -99,10 +99,6 @@ void sorting(Vector * vector){
     }
     merge_sort(Chuncks[pr_id]);
 
-    printf("Length:%zu\n", Chuncks[pr_id]->length);
-    for(int i=0; i<chunk_size && i<Chuncks[pr_id]->length; i++)
-        printf("Chuncks[%d][%d]: %d.%d.%d\n", pr_id,i, Chuncks[pr_id]->letters[i].day
-                , Chuncks[pr_id]->letters[i].month, Chuncks[pr_id]->letters[i].year);
    for(size_t i = pr_id*chunk_size; i< (pr_id+1)*chunk_size && i < vector->length ; i++){
         sem_wait(semaphore);
         vector->letters[i] = Chuncks[pr_id]->letters[i-chunk_size*pr_id];

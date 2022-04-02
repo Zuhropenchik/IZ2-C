@@ -13,10 +13,8 @@ int main() {
         return 0;
     }
     Vector * vector = vector_constructor(0,1);
-    input_vector(vector, rf); printf("%zu\n", vector->length);
+    input_vector(vector, rf);
     sorting(vector);
-    //for(size_t i = 0; i<vector->length; i++)
-      //  print_letter(&vector->letters[i],wf);
     interface(vector, wf);
     free_vector(&vector);
     return 0;
