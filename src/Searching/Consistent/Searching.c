@@ -17,8 +17,9 @@ void search(Vector* vector, int left_day, int left_month, int left_year, int rig
 
             for (int j = 0; j < vector->letters[i].recipients_num; j++) {
 
-                if (strcmp(vector->letters[i].recipients[j], name) == 0)
+                if (strcmp(vector->letters[i].recipients[j], name) == 0) {
                     print_letter(&vector->letters[i], f);
+                }
             }
         }
     }

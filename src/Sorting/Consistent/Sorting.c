@@ -37,7 +37,6 @@ void merge_sort(Vector * vector) {
     if (vector->length <= 1) {
         return;
     }
-
     Vector * left = vector_constructor(0,1);
     Vector * right = vector_constructor(0,1);
 
@@ -51,4 +50,7 @@ void merge_sort(Vector * vector) {
     merge_sort(left);
     merge_sort(right);
     merge(vector, left, right);
+}
+void sorting(Vector * vector){
+    merge_sort(vector);
 }

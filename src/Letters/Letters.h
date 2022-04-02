@@ -17,3 +17,4 @@ int Compare(const Letters * letter1, const Letters * letter2);
 char* get_str(FILE* file);
 Letters * input_letter(FILE* f);
 void print_letter(Letters * letters1, FILE * f);
+void Assignment(Letters* letter1, Letters * letter2);

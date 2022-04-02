@@ -3,11 +3,13 @@
 #include "Letters.h"
 #include "Vector.h"
 Vector* vector_constructor(size_t length, size_t capacity){
-    Vector* to_store = (Vector*)malloc(sizeof (Vector));
+    Vector* vector = (Vector*)malloc(sizeof (Vector));
 
-    to_store->length = length;
-    to_store->capacity = capacity;
-    return to_store;
+    vector->length = length;
+    vector->capacity = capacity;
+    if(length != 0 )
+        vector->letters = (Letters*) malloc(sizeof(Letters)*vector->capacity);
+    return vector;
 
 }
 

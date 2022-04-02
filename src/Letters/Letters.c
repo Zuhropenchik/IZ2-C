@@ -89,3 +89,11 @@ void print_letter(Letters * letters, FILE * f){
     fprintf(f,"%s\n", letters->body);
     fprintf(f,"%d.%d.%d\n\n", letters->day, letters->month, letters->year);
 }
+void Assignment(Letters* letter1, Letters * letter2){
+    strcpy(letter1->sender, letter2->sender);
+    letter1->recipients_num = letter2->recipients_num;
+    for(int i=0; i<letter1->recipients_num;i++)
+        strcpy(letter1->recipients[i], letter2->recipients[i]);
+    strcpy(letter1->theme, letter2->theme);
+    strcpy(letter1->body, letter2->body);
+}
